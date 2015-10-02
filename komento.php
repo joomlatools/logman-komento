@@ -59,7 +59,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
                 'metadata' => array('component' => $component, 'cid' => $cid)
             ),
             'result' => 'saved',
-            'verb' => 'save',
+            'verb'   => 'save',
             'actor'  => $comment->created_by
         ));
     }
@@ -77,14 +77,14 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
 
         $this->log(array(
             'object' => array(
-                'package' => 'komento',
-                'type'    => 'comment',
-                'id'      => $comment->id,
-                'name'    => $comment->name,
+                'package'  => 'komento',
+                'type'     => 'comment',
+                'id'       => $comment->id,
+                'name'     => $comment->name,
                 'metadata' => array('component' => $component, 'cid' => $cid)
             ),
             'result' => 'deleted',
-            'verb' => 'delete',
+            'verb'   => 'delete',
         ));
     }
 
@@ -101,10 +101,10 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
 
         $this->log(array(
             'object' => array(
-                'package' => 'komento',
-                'type'    => 'comment',
-                'id'      => $comment->id,
-                'name'    => $comment->name,
+                'package'  => 'komento',
+                'type'     => 'comment',
+                'id'       => $comment->id,
+                'name'     => $comment->name,
                 'metadata' => array('component' => $component, 'cid' => $cid)
             ),
             'result' => 'published',
@@ -132,7 +132,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
                 'metadata' => array('component' => $component, 'cid' => $cid)
             ),
             'result' => 'unpublished',
-            'verb' => 'unpublish',
+            'verb'   => 'unpublish',
         ));
     }
 }
