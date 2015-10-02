@@ -1,0 +1,24 @@
+{
+  "name": "joomlatools/plg_logman_komento",
+  "type": "joomlatools-installer",
+  "license": "GPLv3",
+  "description": "Handles logging of Komento events",
+  "keywords": [
+    "joomla",
+    "extension",
+    "plugins",
+    "logman",
+    "komento"
+  ],
+  "homepage": "https://github.com/joomlatools/logman-komento",
+  "authors": [
+    {
+      "name": "Joomlatools",
+      "email": "info@joomlatools.net",
+      "homepage": "http://www.joomlatools.com"
+    }
+  ],
+  "require": {
+    "joomlatools/installer": "*"
+  }
+}
