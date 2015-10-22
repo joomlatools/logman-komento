@@ -17,6 +17,13 @@
 class PlgLogmanKomento extends ComLogmanPluginAbstract
 {
     /**
+     * Keeps track of state changes.
+     *
+     * @var array
+     */
+    protected $_state_changes = array('published' => array(), 'unpublished' => array());
+
+    /**
      * Overridden to handle Komento events only.
      */
     public function update(&$args)
@@ -99,17 +106,23 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
     {
         $comment = current($comment);
 
-        $this->log(array(
-            'object' => array(
-                'package'  => 'komento',
-                'type'     => 'comment',
-                'id'       => $comment->id,
-                'name'     => $comment->name,
-                'metadata' => array('component' => $component, 'cid' => $cid)
-            ),
-            'result' => 'published',
-            'verb'   => 'publish'
-        ));
+        if (!in_array($comment->id, $this->_state_changes['published']))
+        {
+            $this->log(array(
+                'object' => array(
+                    'package'  => 'komento',
+                    'type'     => 'comment',
+                    'id'       => $comment->id,
+                    'name'     => $comment->name,
+                    'metadata' => array('component' => $component, 'cid' => $cid)
+                ),
+                'result' => 'published',
+                'verb'   => 'publish'
+            ));
+
+            $this->_state_changes['published'][] = $comment->id;
+        }
+
     }
 
     /**
@@ -123,16 +136,21 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
     {
         $comment = current($comment);
 
-        $this->log(array(
-            'object' => array(
-                'package'  => 'komento',
-                'type'     => 'comment',
-                'id'       => $comment->id,
-                'name'     => $comment->name,
-                'metadata' => array('component' => $component, 'cid' => $cid)
-            ),
-            'result' => 'unpublished',
-            'verb'   => 'unpublish',
-        ));
+        if (!in_array($comment->id, $this->_state_changes['unpublished']))
+        {
+            $this->log(array(
+                'object' => array(
+                    'package'  => 'komento',
+                    'type'     => 'comment',
+                    'id'       => $comment->id,
+                    'name'     => $comment->name,
+                    'metadata' => array('component' => $component, 'cid' => $cid)
+                ),
+                'result' => 'unpublished',
+                'verb'   => 'unpublish',
+            ));
+
+            $this->_state_changes['unpublished'][] = $comment->id;
+        }
     }
 }
