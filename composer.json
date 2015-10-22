@@ -1,5 +1,5 @@
 {
-  "name": "joomlatools/plg_logman_komento",
+  "name": "joomlatools/logman-komento",
   "type": "joomlatools-installer",
   "license": "GPLv3",
   "description": "Handles logging of Komento events",
