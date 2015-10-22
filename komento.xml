@@ -12,7 +12,7 @@
     <description>PLG_LOGMAN_KOMENTO_DESC</description>
 
     <files>
-        <filename plugin="config">komento.php</filename>
+        <filename plugin="komento">komento.php</filename>
         <folder>activity</folder>
         <folder>language</folder>
     </files>
