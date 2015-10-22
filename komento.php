@@ -17,11 +17,11 @@
 class PlgLogmanKomento extends ComLogmanPluginAbstract
 {
     /**
-     * Keeps track of state changes.
+     * Keeps track of triggered events.
      *
      * @var array
      */
-    protected $_state_changes = array('published' => array(), 'unpublished' => array());
+    protected $_triggered_events = array('publish' => array(), 'unpublish' => array(), 'delete' => array());
 
     /**
      * Overridden to handle Komento events only.
@@ -82,17 +82,23 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
     {
         $comment = current($comment);
 
-        $this->log(array(
-            'object' => array(
-                'package'  => 'komento',
-                'type'     => 'comment',
-                'id'       => $comment->id,
-                'name'     => $comment->name,
-                'metadata' => array('component' => $component, 'cid' => $cid)
-            ),
-            'result' => 'deleted',
-            'verb'   => 'delete',
-        ));
+        if (!in_array($comment->id, $this->_triggered_events['delete']))
+        {
+            $this->log(array(
+                'object' => array(
+                    'package'  => 'komento',
+                    'type'     => 'comment',
+                    'id'       => $comment->id,
+                    'name'     => $comment->name,
+                    'metadata' => array('component' => $component, 'cid' => $cid)
+                ),
+                'result' => 'deleted',
+                'verb'   => 'delete',
+            ));
+
+            $this->_triggered_events['delete'][] = $comment->id;
+        }
+
     }
 
     /**
@@ -106,7 +112,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
     {
         $comment = current($comment);
 
-        if (!in_array($comment->id, $this->_state_changes['published']))
+        if (!in_array($comment->id, $this->_triggered_events['publish']))
         {
             $this->log(array(
                 'object' => array(
@@ -120,7 +126,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
                 'verb'   => 'publish'
             ));
 
-            $this->_state_changes['published'][] = $comment->id;
+            $this->_triggered_events['published'][] = $comment->id;
         }
 
     }
@@ -136,7 +142,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
     {
         $comment = current($comment);
 
-        if (!in_array($comment->id, $this->_state_changes['unpublished']))
+        if (!in_array($comment->id, $this->_triggered_events['unpublish']))
         {
             $this->log(array(
                 'object' => array(
@@ -150,7 +156,7 @@ class PlgLogmanKomento extends ComLogmanPluginAbstract
                 'verb'   => 'unpublish',
             ));
 
-            $this->_state_changes['unpublished'][] = $comment->id;
+            $this->_triggered_events['unpublish'][] = $comment->id;
         }
     }
 }
