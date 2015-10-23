@@ -13,8 +13,6 @@ You can install this package using [Composer](https://getcomposer.org/) by simpl
 composer require joomlatools/logman-komento:*
 ```
 
-Run composer install.
-
 ### Package
 
 For downloading an installable package just make use of the **Download ZIP** button located in the right sidebar of this page.
