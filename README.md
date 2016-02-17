@@ -1,7 +1,7 @@
 LOGman Komento plugin
 ========================
 
-Plugin for integrating [Komento](http://stackideas.com/komento/) with LOGman. [LOGman](http://www.joomlatools.com/extensions/logman/) is a user analytics and audit trail solution for Joomla.
+Plugin for integrating [Komento](http://stackideas.com/komento/) with LOGman. [LOGman](https://www.joomlatools.com/extensions/logman/) is a user analytics and audit trail solution for Joomla.
 
 ## Installation
 
