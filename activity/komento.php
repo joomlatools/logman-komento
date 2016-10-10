@@ -80,7 +80,7 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
             'type'       => array(
                 'object'     => true,
                 'objectName' => $component,
-                'url'        => 'option=' . $component,
+                'url'        => array('admin' => 'option=' . $component),
                 'find'       => 'component'
             )
         ));
