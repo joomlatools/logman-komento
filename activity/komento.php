@@ -29,8 +29,8 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
     public function getPropertyImage()
     {
         $images = array(
-            'publish'   => 'icon-ok-circle',
-            'unpublish' => 'icon-remove-circle',
+            'publish'   => 'k-icon-circle-check',
+            'unpublish' => 'k-icon-circle-x',
             'delete'    => 'icon-remove',
             'save'      => 'icon-comment'
         );
