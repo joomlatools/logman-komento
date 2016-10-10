@@ -33,7 +33,3 @@ The following Komento actions are currently logged:
 * Delete
 * Publish
 * Unpublish
-
-## Limitations
-
-* Delete, publish and unpublished actions are only logged when deleting items from the fronted interface. The latest Komento stable release (2.0.5) does not trigger events from these actions when performed from the backend interface.
