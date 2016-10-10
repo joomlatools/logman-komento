@@ -62,7 +62,7 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
             'id'         => $this->row,
             'objectName' => $this->title,
             'subtype'    => array('objectName' => 'Komento', 'object' => true),
-            'type'       => array('url' => $url, 'find' => 'object')
+            'type'       => array('url' => array('admin' => $url), 'find' => 'object')
         ));
 
         parent::_objectConfig($config);
