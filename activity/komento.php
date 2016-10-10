@@ -73,7 +73,7 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
         $component = $this->getMetadata()->component;
 
         // Load the component translations for getting a translated the component name.
-        $this->_loadTranslations($component);
+        $this->getObject('translator')->loadTranslations($component);
 
         $target = $this->_getObject(array(
             'objectName' => 'item',
