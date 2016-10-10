@@ -20,4 +20,15 @@
     <config>
         <fields name="params" />
     </config>
+
+    <resources>
+        <resource name="comment">
+            <actions>
+                <action>add</action>
+                <action>delete</action>
+                <action>publish</action>
+                <action>unpublish</action>
+            </actions>
+        </resource>
+    </resources>
 </extension>
