@@ -14,7 +14,7 @@
  * @author  Arunas Mazeika <https://github.com/amazeika>
  * @package Joomlatools\Plugin\LOGman
  */
-class PlgLogmanKomento extends ComLogmanPluginAbstract
+class PlgLogmanKomento extends ComLogmanPluginLogger
 {
     /**
      * Keeps track of triggered events.
