@@ -31,8 +31,8 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
         $images = array(
             'publish'   => 'k-icon-circle-check',
             'unpublish' => 'k-icon-circle-x',
-            'delete'    => 'icon-remove',
-            'save'      => 'icon-comment'
+            'delete'    => 'k-icon-x',
+            'save'      => 'k-icon-comment-square'
         );
 
         // Default.
