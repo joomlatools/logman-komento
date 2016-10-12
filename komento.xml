@@ -24,7 +24,7 @@
     <resources>
         <resource name="comment">
             <actions>
-                <action>add</action>
+                <action>save</action>
                 <action>delete</action>
                 <action>publish</action>
                 <action>unpublish</action>
