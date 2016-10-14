@@ -11,6 +11,8 @@
     <version>3.0.0</version>
     <description>PLG_LOGMAN_KOMENTO_DESC</description>
 
+    <scriptfile>install.php</scriptfile>
+
     <files>
         <filename plugin="komento">komento.php</filename>
         <folder>activity</folder>
