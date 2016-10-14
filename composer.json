@@ -1,6 +1,6 @@
 {
   "name": "joomlatools/logman-komento",
-  "type": "joomlatools-installer",
+  "type": "joomlatools-composer",
   "license": "GPLv3",
   "description": "Handles logging of Komento events",
   "keywords": [
@@ -19,6 +19,6 @@
     }
   ],
   "require": {
-    "joomlatools/installer": "*"
+    "joomlatools/composer": "*"
   }
 }

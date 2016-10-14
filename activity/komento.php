@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     LOGman
- * @copyright   Copyright (C) 2011 - 2015 Timble CVBA. (http://www.timble.net)
+ * @copyright   Copyright (C) 2011 - 2016 Timble CVBA. (http://www.timble.net)
  * @license     GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
  * @link        http://www.joomlatools.com
  */
@@ -29,10 +29,10 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
     public function getPropertyImage()
     {
         $images = array(
-            'publish'   => 'icon-ok-circle',
-            'unpublish' => 'icon-remove-circle',
-            'delete'    => 'icon-remove',
-            'save'      => 'icon-comment'
+            'publish'   => 'k-icon-circle-check',
+            'unpublish' => 'k-icon-circle-x',
+            'delete'    => 'k-icon-x',
+            'save'      => 'k-icon-comment-square'
         );
 
         // Default.
@@ -62,7 +62,7 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
             'id'         => $this->row,
             'objectName' => $this->title,
             'subtype'    => array('objectName' => 'Komento', 'object' => true),
-            'type'       => array('url' => $url, 'find' => 'object')
+            'type'       => array('url' => array('admin' => $url), 'find' => 'object')
         ));
 
         parent::_objectConfig($config);
@@ -73,14 +73,14 @@ class PlgLogmanKomentoActivityKomento extends ComLogmanModelEntityActivity
         $component = $this->getMetadata()->component;
 
         // Load the component translations for getting a translated the component name.
-        $this->_loadTranslations($component);
+        $this->getObject('translator')->loadTranslations($component);
 
         $target = $this->_getObject(array(
             'objectName' => 'item',
             'type'       => array(
                 'object'     => true,
                 'objectName' => $component,
-                'url'        => 'option=' . $component,
+                'url'        => array('admin' => 'option=' . $component),
                 'find'       => 'component'
             )
         ));
