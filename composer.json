@@ -1,7 +1,7 @@
 {
   "name": "joomlatools/logman-komento",
   "type": "joomlatools-composer",
-  "license": "GPLv3",
+  "license": "GPL-3.0-only",
   "description": "Handles logging of Komento events",
   "keywords": [
     "joomla",
